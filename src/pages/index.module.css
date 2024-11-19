@@ -26,13 +26,13 @@
   flex-direction: column;
   justify-content: center;
   color: var(--ifm-background-color);
-  flex: 1; /* Allows the text to take up available space */
+  flex: 1;
 }
 
 .introText {
-  font-size: 1.5rem; /* Adjust font size as needed */
+  font-size: 3rem; 
   line-height: 1.6;
-  text-align: center; /* Centers text content */
+  text-align: center;
 }
 
 .nameLink {
