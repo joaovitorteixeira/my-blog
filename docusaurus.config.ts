@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Code With JV',
-  tagline: 'Feel welcome to my personal blog :)',
+  title: "Joao's blog",
+  tagline: 'Feel welcome to my blog :)',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -18,7 +18,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'moonward/joao-moon', // Usually your GitHub org/user name.
-  projectName: "Joao's blog", // Usually your repo name.
+  projectName: "Joaozinho's blog", // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -36,11 +36,9 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: 'portfolio',
+          path: "portfolio",
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
