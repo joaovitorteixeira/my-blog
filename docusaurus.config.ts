@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "Joao's blog",
+  title: "João's blog",
   tagline: 'Feel welcome to my blog :)',
   favicon: 'img/favicon.ico',
 
@@ -18,7 +18,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'moonward/joao-moon', // Usually your GitHub org/user name.
-  projectName: "Joaozinho's blog", // Usually your repo name.
+  projectName: "Joãozinho's blog", // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
