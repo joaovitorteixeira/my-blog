@@ -1,0 +1,29 @@
+.aboutMe {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  padding: 2rem 1rem;
+  text-align: justify;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.aboutMe .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.aboutMe .row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.aboutMe a {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.aboutMe a:hover {
+  text-decoration: none;
+}

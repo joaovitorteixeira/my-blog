@@ -1,11 +1,10 @@
 import clsx from "clsx";
-import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
-import Heading from "@theme/Heading";
-
 import styles from "./index.module.css";
+import AboutMe from "@site/src/components/AboutMe";
+import TechSkill from "@site/src/components/TechSkill";
+
 
 function HomepageHeader() {
   return (
@@ -37,7 +36,8 @@ export default function Home(): JSX.Element {
     >
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <AboutMe />
+        <TechSkill />
       </main>
     </Layout>
   );
