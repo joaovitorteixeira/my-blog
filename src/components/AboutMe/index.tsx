@@ -1,15 +1,19 @@
 import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 
-
 export default function AboutMe(): JSX.Element {
   return (
     <section className={styles.aboutMe}>
       <div className="container">
-        <div className="row">
+        <h2>About me</h2>
+        <div className={styles.row}>
           <p>
             I’m a Brazilian living in Australia 🇧🇷➡️🇦🇺 and a Backend Developer!
             💻
+          </p>
+          <p>
+            Currently, I'm a Backend Leader at{" "}
+            <Link to="https://www.moonward.com.au">Moonward Apps</Link> 🌑.
           </p>
           <p>
             In the past few months, I’ve been challenging myself to explore
@@ -20,8 +24,8 @@ export default function AboutMe(): JSX.Element {
             You can find my CV{" "}
             <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
               here
-            </a>.
-            📝
+            </a>
+            . 📝
           </p>
         </div>
       </div>
