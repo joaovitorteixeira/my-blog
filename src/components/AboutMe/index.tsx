@@ -7,25 +7,19 @@ export default function AboutMe(): JSX.Element {
       <div className="container">
         <h2>About me</h2>
         <div className={styles.row}>
-          <p>
-            I’m a Brazilian living in Australia 🇧🇷➡️🇦🇺 and a Backend Developer!
-            💻
-          </p>
+          <p>I’m a Brazilian living in Australia 🇧🇷➡️🇦🇺!</p>
           <p>
             Currently, I'm a Backend Leader at{" "}
-            <Link to="https://www.moonward.com.au">Moonward Apps</Link> 🌑.
+            <Link to="https://www.moonward.com.au">Moonward Apps</Link>. 🌑
           </p>
           <p>
             In the past few months, I’ve been challenging myself to explore
-            other programming languages 🚀, and you can follow all my adventures
+            other programming languages 🤓, and you can follow all my adventures
             in my <Link to="/blog">blog</Link>. 📚
           </p>
           <p>
-            You can find my CV{" "}
-            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
-              here
-            </a>
-            . 📝
+            In my <a href="/portfolio">portfolio</a> page, you can see all my
+            personal projects. Check it out! 🚀
           </p>
         </div>
       </div>
