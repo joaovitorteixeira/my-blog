@@ -11,6 +11,7 @@
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+  color: var(--ifm-color-primary-darkest);
 }
 
 .aboutMe .container {
