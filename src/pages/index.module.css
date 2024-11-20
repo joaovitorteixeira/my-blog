@@ -30,7 +30,7 @@
 }
 
 .introText {
-  font-size: 3rem; 
+  font-size: 3rem;
   line-height: 1.6;
   text-align: center;
 }
@@ -44,4 +44,23 @@
 .nameLink:hover {
   color: var(--ifm-color-primary-darkest);
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .heroBanner {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .profileImage {
+    align-self: center;
+    margin: 0;
+  }
+
+  .textContent {
+    align-self: center;
+    text-align: center;
+  }
 }
