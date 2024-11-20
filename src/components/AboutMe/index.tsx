@@ -17,10 +17,6 @@ export default function AboutMe(): JSX.Element {
             other programming languages 🤓, and you can follow all my adventures
             in my <Link to="/blog">blog</Link>. 📚
           </p>
-          <p>
-            In my <a href="/portfolio">portfolio</a> page, you can see all my
-            personal projects. Check it out! 🚀
-          </p>
         </div>
       </div>
     </section>

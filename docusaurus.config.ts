@@ -69,7 +69,6 @@ const config: Config = {
       },
       items: [
         { to: "/blog", label: "Blog", position: "left" },
-        { to: "/portfolio/intro", label: "Portfolio", position: "left" },
         {
           href: "https://github.com/joaovitorteixeira",
           label: "GitHub",
