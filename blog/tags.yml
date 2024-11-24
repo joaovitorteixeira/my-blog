@@ -2,3 +2,18 @@ rust:
   label: rust
   permalink: /rust
   description: All my articles that I used Rust
+
+prisma:
+  label: prisma
+  permalink: /prisma
+  description: Articles where I used Prisma as my ORM
+
+nodejs:
+  label: nodejs
+  permalink: /nodejs
+  description: NodeJS applications
+
+nestjs:
+  label: nestjs
+  permalink: /nestjs
+  description: Backend I wrote in NestJs
