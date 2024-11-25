@@ -28,8 +28,21 @@ A group of people was experiencing the same problem as me. It was even funny to 
 The bug was considered resolved after updating to [Prisma version 5](https://www.prisma.io/blog/prisma-5-f66prwkjx72s) and Node 18 or 20. However, as mentioned earlier, I was already on version 18, and the bug persisted.  
 
 Since I wasn’t using the latest versions of Prisma and NodeJS, my first attempt was to update them and test again.
-Unsurprisingly the memory leak disappeared. While I don't enjoy the feeling of not fully understanding the root cause of a bug and simply updating some library versions to fix everything magically, sometimes we must move on, pack these experiences into our journey and focus on what will come next.
+Unsurprisingly the memory leak disappeared. While I don't enjoy the feeling of not fully understanding the root cause of a bug and simply updating some library versions to fix everything magically, but sometimes we must move on, pack these experiences into our journey and focus on what will come next.
 
 ![Fixed issue](./assets/fixed-memory-leak.png)
 
 At the same time, I'm not entirely unhappy, as Node 18 will lose support in [5 months](https://endoflife.date/nodejs), and Prisma 5 is significantly better than its previous versions.
+
+## The Real Problem  
+
+I had stopped writing my post at the previous paragraph, but I felt like something was missing from the whole story.
+I hadn’t shared the full picture, and there’s an important lesson I learned here!
+When it comes to a backend server, we want to know everything that’s happening—we need visibility and observability.  
+
+Since each client has their own AWS account, and we have many clients, it’s very difficult to actively monitor server parameters daily and try to identify potential issues. 
+I want the problems to come to me, so I can notify the client that they’re happening (already knowing what the issue is and, possibly, how to fix it).  
+
+Being notified, having a platform that centralizes all this information with graphs for CPU usage, RAM usage, average response time for each endpoint, database status, and other useful metrics—this is what I’ve set as one of my goals for the next year.  
+
+It’s a great challenge, and I’m super excited to dive into this experience! 🤩
