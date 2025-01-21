@@ -1,3 +1,2 @@
-UserUser-agent: *
-
+User-agent: *
 Sitemap: https://www.jvthecoder.dev/sitemap.xml
