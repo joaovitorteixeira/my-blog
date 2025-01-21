@@ -16,7 +16,7 @@ Before diving into the topic, I'd like to raise a few open questions that I'm no
 - To obtain the token when a user successfully logs in, I implemented a pooling system that, along with an ID generated at the start of the authentication process, requests the status of the process. I imagine this could also be implemented using web sockets. 
 - At the end of the authentication process, the received tokens are saved in the same file that contains the CLI application settings. I don't know if this is the best place to save them. 
 - I used the Proof Key for Code Exchange (PKCE) extension for the authentication flow. If I understood correctly, this flow is for public clients (e.g., frontend pages), but I implemented it in my server solution instead of the CLI application. 
-- Lastly, here is the repository if you want to follow my progress (there's still much to be worked on)!
+- Lastly, here is the [repository](https://github.com/PBH-Tech/moonenv) if you want to follow my progress (there's still much to be worked on)!
 
 ## Architecture
 I had to make significant changes and decisions, but the main change was using the API Gateway REST service instead of the HTTP API.
