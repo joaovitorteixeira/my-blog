@@ -17,3 +17,8 @@ nestjs:
   label: nestjs
   permalink: /nestjs
   description: Backend I wrote in NestJs
+
+golang:
+  label: golang
+  permalink: /golang
+  description: Golang applications

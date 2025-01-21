@@ -1,0 +1,30 @@
+title Authentication sequence diagram
+actor User
+participant CLI
+participant Browser
+participant REST API
+database DynamoDb
+participant Cognito
+
+User->CLI:1- moonenv login
+CLI->REST API:2- Initiates the authentication flow
+activate REST API
+REST API->DynamoDb:3- Saves the new set of token
+deactivate REST API
+REST API->CLI:4- Returns the set of token
+ref over CLI,REST API:It initiates a pooling that finishes\neither when the user sign in or\nwhen it times out
+CLI->Browser:5- Opens the login page
+User->Browser:6- Insert their credentials
+Browser->Cognito:7- Sends the credentials
+Cognito->REST API:8- When succeed, callbacks the server
+note over Cognito, REST API: There is a bug here that I'll mention later
+activate REST API
+REST API->DynamoDb:9- Updates the set of token's status
+deactivate REST API
+CLI->REST API:10- Last looping detects\nthat the auth flow is finished
+CLI->REST API:11- Requests the token
+REST API->DynamoDb:12- Updates the set of token to\ncompleted status
+REST API->Cognito:13- Exchanges the set of token to an access token
+Cognito->REST API:14- Returns the new token
+REST API->CLI:15- Returns the new token
+CLI->User:16- Finishes the process
