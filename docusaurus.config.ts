@@ -8,6 +8,7 @@ const config: Config = {
   title: "João's site",
   tagline: "Feel welcome to my site :)",
   favicon: "img/favicon.ico",
+  staticDirectories: ["static"],
 
   url: "https://jvthecoder.dev",
   baseUrl: "/",
