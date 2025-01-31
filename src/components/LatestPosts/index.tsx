@@ -25,14 +25,14 @@ export default function LastPosts(): JSX.Element {
   const [latestPosts, setLatestPosts] = useState([] as typeof data.items);
 
   useEffect(() => {
-    setLatestPosts(data.items.slice(0, 4));
+    setLatestPosts(data.items.slice(0, 3));
   }, []);
 
   return (
     <section className={styles.latestPosts}>
       <h2 className="section-title">Latest Posts</h2>
-      <div className="relative overflow-hidden">
-        <div className="card-list">
+      <div className="container">
+        <div className={`card-list ${styles["card-list"]}`}>
           {latestPosts.map((post) => (
             <SkillSquare
               key={post.permalink}

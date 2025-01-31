@@ -10,3 +10,15 @@
   position: relative;
   margin-top: 1rem;
 }
+
+.card-list {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .card-list {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+}

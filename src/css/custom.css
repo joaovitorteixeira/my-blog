@@ -37,7 +37,6 @@
 
 .card-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
@@ -63,12 +62,6 @@
 
 .card:hover {
   transform: translateY(-5px);
-}
-
-@media (min-width: 1024px) {
-  .card-list {
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  }
 }
 
 @media (min-width: 320px) {
