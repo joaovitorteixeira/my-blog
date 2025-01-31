@@ -15,8 +15,10 @@ function SkillSquare({ title, date: dateStr, link }) {
 
   return (
     <a href={link} className={`${styles.card} card`}>
-      <span className="card-title">{title}</span>
-      <span className={`card-title ${styles.cardDate}`}>{formattedToday}</span>
+      <span className={`card-title ${styles["card-title"]}`}>{title}</span>
+      <span className={`card-title ${styles["card-date"]}`}>
+        {formattedToday}
+      </span>
     </a>
   );
 }
