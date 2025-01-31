@@ -1,30 +1,21 @@
-.aboutMe {
-  background-color: var(--ifm-background-color);
-  color: var(--ifm-font-color-base);
-  padding: 2rem 1rem;
+.about-me {
+  margin-top: 2rem;
   text-align: justify;
   font-size: 1.5rem;
   line-height: 1.6;
 }
 
-.aboutMe h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: var(--ifm-color-primary-darkest);
-}
-
-.aboutMe .container {
+.about-me .container {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.aboutMe a {
+.about-me a {
   color: var(--ifm-color-primary);
   text-decoration: underline;
   font-weight: bold;
 }
 
-.aboutMe a:hover {
+.about-me a:hover {
   text-decoration: none;
 }

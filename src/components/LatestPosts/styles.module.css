@@ -1,0 +1,12 @@
+.card:hover {
+  text-decoration: none;
+  border: 1rem;
+}
+
+.card-date {
+  display: block;
+  color: var(--ifm-color-primary-darkest);
+  text-align: right;
+  position: relative;
+  margin-top: 1rem;
+}

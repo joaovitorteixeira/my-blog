@@ -1,12 +1,13 @@
 {
-    "cSpell.words": [
-        "joao",
-        "João",
-        "joaovitorteixeira",
-        "Joaozinho's",
-        "Joãozinho's",
-        "Moonenv",
-        "nestjs",
-        "rampire"
-    ]
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "joao",
+    "João",
+    "joaovitorteixeira",
+    "Joaozinho's",
+    "Joãozinho's",
+    "Moonenv",
+    "nestjs",
+    "rampire"
+  ]
 }

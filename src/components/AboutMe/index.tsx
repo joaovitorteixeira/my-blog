@@ -3,9 +3,9 @@ import styles from "./styles.module.css";
 
 export default function AboutMe(): JSX.Element {
   return (
-    <section className={styles.aboutMe}>
+    <section className={styles["about-me"]}>
       <div className="container">
-        <h2>About me</h2>
+        <h2 className="section-title">About me</h2>
         <div className={styles.row}>
           <p>I’m a Brazilian living in Australia 🇧🇷➡️🇦🇺!</p>
           <p>

@@ -5,19 +5,19 @@ import { DiMysql } from "react-icons/di";
 
 function SkillSquare({ icon: Icon, name }) {
   return (
-    <div className={styles.skill}>
+    <div className="card">
       <Icon className={styles.icon} />
-      <span className={styles.skillName}>{name}</span>
+      <span className="card-title">{name}</span>
     </div>
   );
 }
 
 export default function TechSkill(): JSX.Element {
   return (
-    <section className={styles.techSkills}>
+    <section className={styles["tech-skills"]}>
       <div className="container">
         <h2>My Tech Skills</h2>
-        <div className={styles.skillList}>
+        <div className="card-list">
           <SkillSquare icon={FaNodeJs} name="Node.js" />
           <SkillSquare icon={SiTypescript} name="TypeScript" />
           <SkillSquare icon={DiMysql} name="MySQL" />
