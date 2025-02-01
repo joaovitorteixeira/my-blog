@@ -9,13 +9,22 @@ export default function AboutMe(): JSX.Element {
         <div className={styles.row}>
           <p>I’m a Brazilian living in Australia 🇧🇷➡️🇦🇺!</p>
           <p>
-            Currently, I'm a Backend Leader at{" "}
-            <Link to="https://www.moonward.com.au">Moonward Apps</Link>. 🌑
+            ❣ I'm passionate about resolving complex problems and building a
+            reliable, scalable and maintainable codebase.
+          </p>
+          <p>🎓 I have a Bachelor’s degree in Information System.</p>
+          <p>
+            🚀 I have been working as a Software Engineer for the past 7 years.
           </p>
           <p>
-            In the past few months, I’ve been challenging myself to explore
-            other programming languages 🤓, and you can follow all my adventures
-            in my <Link to="/blog">blog</Link>. 📚
+            Download my resume{" "}
+            <Link
+              to="/joao-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here
+            </Link>
           </p>
         </div>
       </div>
