@@ -2,7 +2,7 @@ import { FaAws, FaNodeJs } from "react-icons/fa";
 import styles from "./styles.module.css";
 import { GrMysql } from "react-icons/gr";
 import { SiPrisma, SiTypescript } from "react-icons/si";
-import { SiKeycloak } from "react-icons/si";
+import { SiNestjs } from "react-icons/si";
 
 function SkillSquare({ icon: Icon, name }) {
   return (
@@ -24,7 +24,7 @@ export default function TechSkill(): JSX.Element {
           <SkillSquare icon={GrMysql} name="MySQL" />
           <SkillSquare icon={SiPrisma} name="Prisma" />
           <SkillSquare icon={FaAws} name="CloudFormation (CDK)" />
-          <SkillSquare icon={SiKeycloak} name="Keycloak" />
+          <SkillSquare icon={SiNestjs} name="NestJs" />
         </div>
       </div>
     </section>
