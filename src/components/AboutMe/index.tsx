@@ -23,7 +23,7 @@ export default function AboutMe(): JSX.Element {
               target="_blank"
               rel="noopener noreferrer"
             >
-              here
+              here.
             </Link>
           </p>
         </div>
