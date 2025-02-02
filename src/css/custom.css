@@ -6,14 +6,14 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #3a6fba;
-  --ifm-color-primary-dark: #2c5490;
-  --ifm-color-primary-darker: #24477a;
-  --ifm-color-primary-darkest: #1d3a64;
-  --ifm-color-primary-light: #507ebf;
-  --ifm-color-primary-lighter: #6b94c6;
-  --ifm-color-primary-lightest: #85aadf;
-  --ifm-background-color: #f5f5f5;
+  --ifm-color-primary: #25446f;
+  --ifm-color-primary-dark: #25436e;
+  --ifm-color-primary-darker: #24416b;
+  --ifm-color-primary-darkest: #234068;
+  --ifm-color-primary-light: #2c5285;
+  --ifm-color-primary-lighter: #2e558b;
+  --ifm-color-primary-lightest: #305890;
+  --ifm-background-color: #ffffff;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -56,7 +56,7 @@
 .card-title {
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--ifm-color-primary-darkest);
+  color: var(--ifm-background-color);
   text-align: center;
 }
 
