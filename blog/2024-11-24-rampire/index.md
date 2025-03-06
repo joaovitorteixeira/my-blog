@@ -15,10 +15,10 @@ When problems like this occur they always seem to happen on a weekend, right? Mu
 ![Memory leak](./assets/memory-leak.png)
 
 
-This image shows the RAM usage over several months. Each of these spikes represents an instance reaching 100% memory usage (a 2GB instance, with only 1GB dedicated to the application—another bug we also fixed). After hitting the memory limit, another instance was created and this continued until reaching the limit of 4 instances.  
+This image shows the RAM usage over several months. Each of these spikes represents an instance reaching 100% memory usage (a 2GB instance, with only 1GB dedicated to the application—another bug I also fixed). After hitting the memory limit, another instance was created and this continued until reaching the limit of 4 instances.  
 Now that I've explained the issue, let me properly introduce it: meet our bug, **RAMpire** 🧛🏻.  
 
-Our stack at the time was using Node 18 and Prisma 4. When we detected this bug, my first step (after restart the instances- provisory fix) was to check the issues list on GitHub and search for related problems. Gotcha! Here's the issue I found:  
+My stack at the time was using Node 18 and Prisma 4. When we detected this bug, my first step (after restart the instances- provisory fix) was to check the issues list on GitHub and search for related problems. Gotcha! Here's the issue I found:  
 
 [Prisma Memory Leak when using in NestJS app, reported by Jest #17925](https://github.com/prisma/prisma/issues/17925)
 
