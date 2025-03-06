@@ -5,7 +5,7 @@ slug: rampire-problem
 tags: [nodejs, prisma, nestjs]
 hide_table_of_contents: false
 ---
-Currently, the backend applications I write are built using NodeJS with the [NestJS](https://nestjs.com/) framework, MySQL as the database, and [Prisma](https://www.prisma.io/) as the ORM. This stack is excellent for quickly building MVPs and is also perfect for agencies.  
+Currently, the backend applications I write are built using NodeJS with the [NestJS](https://nestjs.com/) framework, MySQL as the database, and [Prisma](https://www.prisma.io/) as the ORM. This stack is excellent for quickly building MVPs.
 However at the beginning of the year, some of our projects completed the previous year began exhibiting strange behavior and over time the servers became unavailable.
 
 <!-- truncate -->
