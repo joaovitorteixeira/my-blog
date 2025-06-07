@@ -2,7 +2,7 @@
 title: Implementing a Custom Source in Apache Flume ℹ️
 description: A custom Source implementation in Apache Flume to collect data from an earthquake endpoint.
 slug: implementing-custom-source-in-apache-flume
-tags: [java, data-stream, apache-flume]
+tags: [java, data-stream]
 hide_table_of_contents: false
 ---
 Since my last post, many things have changed in my life... all of them are good changes! One exciting update I’d like to share is that I’ve started a post-graduation program in Data Engineering. And today, I’m bringing a project I worked on over the weekend.
