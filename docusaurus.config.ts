@@ -15,6 +15,7 @@ const config: Config = {
 
   organizationName: "joaovitorteixeira",
   projectName: "Joãozinho's site",
+  deploymentBranch: "main",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
