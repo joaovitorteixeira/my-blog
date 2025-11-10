@@ -8,6 +8,11 @@ prisma:
   permalink: /prisma
   description: Articles where I used Prisma as my ORM
 
+open-source:
+  label: open source
+  permalink: /open-source
+  description: My contributions to open source projects
+
 nodejs:
   label: nodejs
   permalink: /nodejs
@@ -22,13 +27,3 @@ golang:
   label: golang
   permalink: /golang
   description: Golang applications
-
-java:
-  label: java
-  permalink: /java
-  description: Java applications
-
-data-stream:
-  label: data-stream
-  permalink: /data-stream
-  description: Study case using concepts I have learned in my post-graduation of Data Engineering
