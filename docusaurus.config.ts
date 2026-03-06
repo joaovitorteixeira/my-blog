@@ -38,8 +38,8 @@ const config: Config = {
       "classic",
       {
         docs: {
-          routeBasePath: "weekly-report",
-          path: "weekly-report",
+          routeBasePath: "portfolio",
+          path: "portfolio",
           sidebarPath: "./sidebars.ts",
         },
         blog: {
@@ -73,11 +73,6 @@ const config: Config = {
       },
       items: [
         { to: "/blog", label: "Blog", position: "left" },
-        {
-          to: "/weekly-report",
-          label: "Weekly report",
-          position: "left",
-        },
         {
           href: "https://github.com/joaovitorteixeira",
           label: "GitHub",
