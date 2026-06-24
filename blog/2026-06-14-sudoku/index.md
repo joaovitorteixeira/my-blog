@@ -1,61 +1,98 @@
 ---
 title: Sudoku algorithms in Rust
-description: I wrote 3 different algorithms to solve sudoku
+description: Three different algorithms to solve Sudoku — backtracking, candidate election, and simulated annealing — implemented in Rust.
 slug: sudoku-algorithms-in-rust
 tags: [rust]
 hide_table_of_contents: false
 ---
-Sudoku is a game where your goal is to fill all the 9x9 grid where each row, column and subgrid of 3x3 must contain numbers from 1 to 9 only once. Algorithm that solves these problems are really fun and they can go much more complex than you think.
+Sudoku is a logic puzzle played on a 9×9 grid. The goal is to fill every cell so that each row, column, and 3×3 box contains the digits 1 through 9 exactly once. Algorithms that solve it are simple to describe and surprisingly rich once you start optimizing them.
 
 <!-- truncate -->
 
 ## Why Sudoku?
-I have played Sudoku when I was young and that was one of the few options for games I had in my phone. As I grew up and the smart phone came, Sudoku wan't the the type of game I spent my time on. Last year a friend of mine who is learning programming came to me and showed a new challenge gave to him: build an algorithm that can solve Sudoku. I spent some time about the problem, and it didn't sound to me very complex, but it would be cool to write it in rust. A good opportunity to learn concepts that I didn't really get it (mainly ownership and borrowing).
 
-## Algorithms
-For all the algorithms I also have implemented a performance summary which contains the number of actions that defines how many times grids in the sudoku board was set with any number or unset; and the elapsed which contains how much time it consumed to resolve the puzzle.
+I played Sudoku as a kid — it was one of the few games on my phone back then. As smartphones took over, Sudoku stopped being how I spent my time. Then, last year, a friend who was learning to program showed me a challenge he had been given: build an algorithm that can solve Sudoku.
 
-All the algorithms will have a gif that shows each of the algorithms' behavior and the summary. Because the resolution is too quick, I have implement a sleep mode which after setting any value to the grid, the thread sleep for 10ms. This impacted the performance. For this reason I also added a benchmark. 
+I spent some time thinking about the problem. It did not sound very hard on paper, but it seemed like a good excuse to write something in Rust — and to finally get comfortable with ownership and borrowing.
 
-### My first solution
-The first obvious solution was backtraking, where for each grid that need to be filled the algorithm try every option until it find a valid one, and then it goes to the next grid and do it again. If it can find a valid number, then it cleans the grid and return back to the previous grid and try the next number. This process will repeat until the final solution is found.
+The result is [sudoku-rust](https://github.com/joaovitorteixeira/sudoku-rust): a small CLI that solves puzzles and animates the board as cells are filled in.
 
-![backtraking](./assets/bt.gif)
+## Measuring performance
 
-| Level | Number of actions | Elapsed in Seconds (Avg) |
-| ----- | ----------------- | ------------------------ |
-| easy  | 645               | 0.000032s                |
-| hard  | 1910119           | 0.141178s                |
+Each solver tracks two metrics:
 
-### Candidate election
-It is still a backtraking solution, but for the first interaction, the algorithm goes to every empty grid and check what are the possible values that can be inserted. This strategy helps to remove values in the first interaction, which directly impacts the final performance.
+- **Actions** — how many times a cell is set or cleared on the board.
+- **Elapsed time** — clock time to find a solution.
+
+For the GIFs below, I added an optional `--sleep-ms` delay after each cell update so you can actually watch the solver work. That sleep time is excluded from the elapsed numbers in the tables, so the benchmarks reflect real solve time.
+
+Simulated annealing is stochastic, so I ran it multiple times on the hard puzzle and report average, minimum, and maximum action counts.
+
+## Backtracking
+
+The most obvious approach is backtracking. The algorithm walks through empty cells in order. For each cell, it tries digits 1 through 9 until one is valid, then moves forward. If no digit works, it clears the cell and retreats to the previous one to try the next option. This repeats until the board is complete.
+
+![backtracking](./assets/bt.gif)
+
+| Level | Actions | Elapsed (avg) |
+| ----- | ------- | ------------- |
+| easy  | 645     | 0.000032s     |
+| hard  | 1910119 | 0.141178s     |
+
+Backtracking works, but on harder puzzles it explores a huge number of dead ends.
+
+## Candidate election
+
+This is still backtracking, but with a preprocessing step. Before searching, the algorithm visits every empty cell and builds a list of valid candidates. Digits that do not violate row, column, or box constraints. During the search, it only tries those candidates instead of all nine digits.
+
+That single pass eliminates many invalid branches up front and cuts the search space.
 
 ![candidate election](./assets/ce.gif)
 
-| Level | Number of actions | Elapsed in Seconds (Avg) |
-| ----- | ----------------- | ------------------------ |
-| easy  | 205               | 0.0000174                |
-| hard  | 929098            | 0.0750074                |
+| Level | Actions | Elapsed (avg) |
+| ----- | ------- | ------------- |
+| easy  | 205     | 0.0000174s    |
+| hard  | 929098  | 0.0750074s    |
 
-### Simulated annealing
+On the hard puzzle, candidate election uses roughly half as many actions as plain backtracking.
 
-I found this [paper](https://rhydlewis.eu/papers/META_CAN_SOLVE_SUDOKU.pdf) while searching for more algorithms that can solve Sudoku, and it introduced me Simulated Annealing (SA). In metallurgy, annealing is the process of heating and slowly cooling of a material to change its physical properties. Simulated annealing is an algorithm inspired in this process that probabilistically finds the global solution for a function.
+## Simulated annealing
 
-To find the optimal solution for a certain Sudoku board, the paper splits it into a few steps:
+While looking for other approaches, I found [Lewis (2007)](https://rhydlewis.eu/papers/META_CAN_SOLVE_SUDOKU.pdf), which applies simulated annealing (SA) to Sudoku. In metallurgy, annealing heats a material and then cools it slowly to change its physical properties. SA mimics that idea: it accepts worse moves early on (when the "temperature" is high) and becomes increasingly greedy as the temperature drops, which helps escape local minima.
 
-- Direct representation: the process of forming the initial candidate by random filling the 3x3 grid with the missing values for that grid.
-- Neighborhood Operator: chooses 2 non-fixed cells in the same grid and swaps them.
-- Defining the temperature: the algorithms needs to calibrate the temperature first, this is done by making the some initial interactions and then calculating the standard deviation of the cost during the Neighborhood moves.
-- Evaluation the candidate solutions: the algorithm looks at each row and column and sum the missing values between 1 to 9. If the final cost is 0 it means that the global solution was found.
-  - In case, the cost is not 0 yet, the algorithm will check whether the new cost is acceptable or it should revert the Neighborhood Operator. This process involves the temperature and cost.
-- Temperature reduction: during the run the temperature is reduced by a certain alpha parameter (which is 0,99 in the code).
-- Reheating process: if the process of choosing cells to swap and evaluating the candidate solution can't find the global solution after the minimal temperature or a certain number of interaction is reached, then the reheat process starts
-  - The temperature is set to the initial value, a new direct representation is generated and the algorithm continues.
+Lewis frames Sudoku as an optimization problem rather than a pure logic puzzle. The key pieces:
 
+**Direct representation.** Build an initial candidate by filling each 3×3 box independently: for every empty cell in a box, assign a random digit that is not already present in that box. Boxes always satisfy the Sudoku box constraint; rows and columns may not.
+
+**Neighborhood operator.** Pick two different non-fixed cells in the same box and swap their values. Swaps never break the box constraint.
+
+**Cost function.** For each row and each column, count how many digits from 1 to 9 are missing. The total across all rows and columns is the cost. A valid solution has cost zero.
+
+**Temperature calibration.** Before the main search, perform a sample of random swaps and set the initial temperature to the standard deviation of the cost changes.
+
+**Cooling.** After each Markov chain (a fixed number of swap attempts at the current temperature), multiply the temperature by α = 0.99.
+
+**Reheating.** If the temperature falls below a minimum threshold, or if there is no improvement for N consecutive chains, reset the temperature, generate a new random initial solution, and continue. This random-restart mechanism helps when the search gets stuck.
 
 ![simulated annealing](./assets/sa.gif)
 
-| Level | Number of actions (Avg) | Number of actions (Min) | Number of actions (Max) | Elapsed in Seconds (Avg) |
-| ----- | ----------------------- | ----------------------- | ----------------------- | ------------------------ |
-| easy  | 71682.6                 | 25732                   | 140598                  | 0.0419584                |
-| hard  | 35278006                | 3364824                 | 81660879                | 6.14526411s              |
+| Level | Actions (avg) | Actions (min) | Actions (max) | Elapsed (avg) |
+| ----- | ------------- | ------------- | ------------- | ------------- |
+| easy  | 71682.6       | 25732         | 140598        | 0.0419584s    |
+| hard  | 35278006      | 3364824       | 81660879      | 6.14526411s   |
+
+SA behaves very differently from the backtracking approaches. It performs many more cell updates, and results vary from run to run because the search is probabilistic. On easy newspaper-style puzzles it is fast enough; on harder instances it can take seconds and may need several reheats.
+
+## Takeaways
+
+For typical logic-solvable puzzles, constrained backtracking (candidate election) is the clear winner: fewest actions and the fastest elapsed time. Plain backtracking is simpler to implement but pays for that simplicity on harder grids. Simulated annealing is the outlier — slower and noisier on these benchmarks, but interesting because it does not rely on logical deduction at all. Lewis's paper shows it scaling to larger grids and puzzles that pure logic solvers struggle with, which is where a metaheuristic approach earns its keep.
+
+If you want to try the solvers yourself, clone [sudoku-rust](https://github.com/joaovitorteixeira/sudoku-rust), pick a puzzle from the `example/` folder, and run:
+
+```bash
+cargo run --release -- -a ce
+cargo run --release -- -a bt
+cargo run --release -- -a sa
+```
+
+Add `--sleep-ms 10` if you want to slow down the animation for demos.
