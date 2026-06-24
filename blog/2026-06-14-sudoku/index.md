@@ -82,17 +82,3 @@ Lewis frames Sudoku as an optimization problem rather than a pure logic puzzle. 
 | hard  | 35278006      | 3364824       | 81660879      | 6.14526411s   |
 
 SA behaves very differently from the backtracking approaches. It performs many more cell updates, and results vary from run to run because the search is probabilistic. On easy newspaper-style puzzles it is fast enough; on harder instances it can take seconds and may need several reheats.
-
-## Takeaways
-
-For typical logic-solvable puzzles, constrained backtracking (candidate election) is the clear winner: fewest actions and the fastest elapsed time. Plain backtracking is simpler to implement but pays for that simplicity on harder grids. Simulated annealing is the outlier — slower and noisier on these benchmarks, but interesting because it does not rely on logical deduction at all. Lewis's paper shows it scaling to larger grids and puzzles that pure logic solvers struggle with, which is where a metaheuristic approach earns its keep.
-
-If you want to try the solvers yourself, clone [sudoku-rust](https://github.com/joaovitorteixeira/sudoku-rust), pick a puzzle from the `example/` folder, and run:
-
-```bash
-cargo run --release -- -a ce
-cargo run --release -- -a bt
-cargo run --release -- -a sa
-```
-
-Add `--sleep-ms 10` if you want to slow down the animation for demos.
