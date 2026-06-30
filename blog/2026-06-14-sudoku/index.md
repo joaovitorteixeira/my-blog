@@ -11,9 +11,9 @@ Sudoku is a logic puzzle played on a 9×9 grid. The goal is to fill every cell s
 
 ## Why Sudoku?
 
-I played Sudoku as a kid — it was one of the few games on my phone back then. As smartphones took over, Sudoku stopped being how I spent my time. Then, last year, a friend who was learning to program showed me a challenge he had been given: build an algorithm that can solve Sudoku.
+I played Sudoku as a kid because it was one of the few games on my phone back then. As smartphones took over, Sudoku stopped being how I spent my time. Then, last year, a friend who was learning to program showed me a challenge he had been given: build an algorithm that can solve Sudoku.
 
-I spent some time thinking about the problem. It did not sound very hard on paper, but it seemed like a good excuse to write something in Rust — and to finally get comfortable with ownership and borrowing.
+I spent some time thinking about the problem. It did not sound very hard on paper, but it seemed like a good excuse to write something in Rust and to finally get comfortable with ownership and borrowing.
 
 The result is [sudoku-rust](https://github.com/joaovitorteixeira/sudoku-rust): a small CLI that solves puzzles and animates the board as cells are filled in.
 
@@ -21,8 +21,8 @@ The result is [sudoku-rust](https://github.com/joaovitorteixeira/sudoku-rust): a
 
 Each solver tracks two metrics:
 
-- **Actions** — how many times a cell is set or cleared on the board.
-- **Elapsed time** — clock time to find a solution.
+- **Actions**: how many times a cell is set or cleared on the board.
+- **Elapsed time**: clock time to find a solution.
 
 For the GIFs below, I added an optional `--sleep-ms` delay after each cell update so you can actually watch the solver work. That sleep time is excluded from the elapsed numbers in the tables, so the benchmarks reflect real solve time.
 
