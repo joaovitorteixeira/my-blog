@@ -19,6 +19,15 @@ const config: Config = {
 
   onBrokenLinks: "throw",
 
+  scripts: [
+    {
+      src: "https://gc.zgo.at/count.js",
+      async: true,
+      "data-goatcounter": "https://jvthecoder.goatcounter.com/count",
+    },
+  ],
+  clientModules: ["./src/clientModules/goatcounter.ts"],
+
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: "throw",
