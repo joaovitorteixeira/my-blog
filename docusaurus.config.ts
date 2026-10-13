@@ -10,7 +10,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
   staticDirectories: ["static"],
 
-  url: "https://jvthecoder.dev",
+  url: "https://www.jvthecoder.dev",
   baseUrl: "/",
 
   organizationName: "joaovitorteixeira",
