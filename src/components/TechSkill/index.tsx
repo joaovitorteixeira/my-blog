@@ -17,7 +17,7 @@ export default function TechSkill(): JSX.Element {
   return (
     <section className={styles["tech-skills"]}>
       <div className="container">
-        <h2>My Tech Skills</h2>
+        <h2 className="section-title">My Tech Skills</h2>
         <div className={`card-list ${styles["card-list"]}`}>
           <SkillSquare icon={FaNodeJs} name="Node.js" />
           <SkillSquare icon={SiTypescript} name="TypeScript" />
