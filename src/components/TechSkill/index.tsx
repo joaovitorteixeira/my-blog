@@ -1,8 +1,11 @@
 import { FaAws, FaNodeJs } from "react-icons/fa";
 import styles from "./styles.module.css";
-import { GrMysql } from "react-icons/gr";
-import { SiPrisma, SiTypescript } from "react-icons/si";
-import { SiNestjs } from "react-icons/si";
+import {
+  SiApachekafka,
+  SiKubernetes,
+  SiMongodb,
+  SiTypescript,
+} from "react-icons/si";
 
 function SkillSquare({ icon: Icon, name }) {
   return (
@@ -21,10 +24,10 @@ export default function TechSkill(): JSX.Element {
         <div className={`card-list ${styles["card-list"]}`}>
           <SkillSquare icon={FaNodeJs} name="Node.js" />
           <SkillSquare icon={SiTypescript} name="TypeScript" />
-          <SkillSquare icon={GrMysql} name="MySQL" />
-          <SkillSquare icon={SiPrisma} name="Prisma" />
+          <SkillSquare icon={SiMongodb} name="MongoDB" />
+          <SkillSquare icon={SiApachekafka} name="Kafka" />
           <SkillSquare icon={FaAws} name="CloudFormation (CDK)" />
-          <SkillSquare icon={SiNestjs} name="NestJs" />
+          <SkillSquare icon={SiKubernetes} name="Kubernetes" />
         </div>
       </div>
     </section>
